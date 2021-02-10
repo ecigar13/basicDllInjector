@@ -12,7 +12,7 @@ DWORD GetProcId(const char* procName) {
     HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hSnap != INVALID_HANDLE_VALUE) {
         PROCESSENTRY32 procEntry;
-        procEntry.dwSize = sizeof(procEntry);
+        procEntry.dwSize = sizeof(PROCESSENTRY32);
         if (Process32First(hSnap, &procEntry)) {
             do {
                 if (!_stricmp(procEntry.szExeFile, procName)) {
